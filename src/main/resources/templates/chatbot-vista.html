@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Ingeniería de Sistemas</title>
+    <style>
+        /* Estilo del cuerpo */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #001f3f, #0047b3, #003366, #001f3f);
+            background-size: 600% 600%;
+            animation: backgroundAnimation 12s ease infinite;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animación del fondo degradado */
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Estilo del título */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 0;
+            opacity: 0;
+            animation: textGlow 3s ease-in-out infinite alternate, slideInFromBottom 2s ease-out, fadeInText 2s ease-out forwards;
+        }
+
+        /* Animación de brillo del texto */
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 15px #00c4ff, 0 0 30px #0074d9, 0 0 45px #0047b3; }
+            100% { text-shadow: 0 0 30px #00eaff, 0 0 45px #00c4ff, 0 0 60px #001f3f; }
+        }
+
+        /* Animación de entrada desde abajo */
+        @keyframes slideInFromBottom {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Animación de aparición gradual */
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Estilo del párrafo */
+        p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            opacity: 0;
+            animation: fadeInText 2s ease-out forwards, slideInFromBottom 2s ease-out;
+        }
+
+        /* Decoración con orbes flotantes */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            animation: orbAnimation 10s infinite ease-in-out;
+        }
+
+        .orb-small { width: 40px; height: 40px; animation-duration: 8s; }
+        .orb-medium { width: 80px; height: 80px; animation-duration: 12s; }
+        .orb-large { width: 120px; height: 120px; animation-duration: 15s; }
+
+        /* Animación de los orbes */
+        @keyframes orbAnimation {
+            0% { transform: translateX(0) translateY(0); opacity: 1; }
+            50% { transform: translateX(100px) translateY(50px); opacity: 0.5; }
+            100% { transform: translateX(0) translateY(0); opacity: 1; }
+        }
+
+        /* Estilo de la imagen */
+        .header-image {
+            max-width: 300px; /* Ajusta el tamaño de la imagen */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- Imagen encima del título -->
+        <img src="image-removebg-preview.png" alt="Imagen del Chatbot" class="header-image">
+        
+        <h1>Bienvenido al chatbot de Ingeniería de Sistemas</h1>
+        <p>Consulta trámites académicos e información general de la carrera de Ingeniería de Sistemas</p>
+    </div>
+
+    <!-- Orbes flotantes decorativos -->
+    <div class="orb orb-small" style="top: 20%; left: 10%;"></div>
+    <div class="orb orb-medium" style="top: 40%; left: 70%;"></div>
+    <div class="orb orb-large" style="top: 60%; left: 30%;"></div>
+    <div class="orb orb-medium" style="top: 80%; left: 90%;"></div>
+    <div class="orb orb-small" style="top: 30%; left: 80%;"></div>
+
+    <!-- Script del chatbot -->
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '674cd52157104c9f63c64b04' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production'
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+</body>
+</html>
